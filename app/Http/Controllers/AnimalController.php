@@ -20,7 +20,7 @@ class AnimalController extends Controller
             'altura' => $request->altura,
             'sexo' => $request->sexo,
             'dieta' => $request->dieta,
-            'habitat' => $request->habitatS
+            'habitat' => $request->habitat
 
         ]);
         return response()->json([
@@ -47,10 +47,10 @@ class AnimalController extends Controller
 
     public function retornarTodos()
     {
-        $profissionais = Animal::all();
+        $animais = Animal::all();
         return response()->json([
             'status' => true,
-            'data' => $profissionais
+            'data' => $animais
         ]);
     }
 
@@ -100,27 +100,26 @@ class AnimalController extends Controller
                 'status' => false,
                 'message' => "Animal não encontrado"
             ]);
+        } else {
+            $animal->delete();
+            return response()->json([
+                'status' => true,
+                'message' => "Animal excluido com sucesso"
+            ]);
         }
-        else{
-        $animal->delete();
-        return response()->json([
-            'status' => true,
-            'message' => "Animal excluido com sucesso"
-        ]);}
     }
 
     public function atualizarAnimal(AnimalUpdateFormRequest $request)
     {
+
+
         $animal = Animal::find($request->id);
-        //Função If set para verificar se a variavel está vazia ou com um valor determinado
+
         if (!isset($animal)) {
             return response()->json([
                 'status' => false,
-                'message' => "Animal não atualizado"
+                'message' => 'Animal não encontrado'
             ]);
-        }
-        if (isset($request->idade)) {
-            $animal->idade = $request->idade;
         }
 
         if (isset($request->nome)) {
@@ -131,37 +130,34 @@ class AnimalController extends Controller
             $animal->especie = $request->especie;
         }
 
-        if (isset($request->ra)) {
-            $animal->ra = $request->ra;
-        }
-
         if (isset($request->peso)) {
             $animal->peso = $request->peso;
-        }
-
-        if (isset($request->altura)) {
-            $animal->altura = $request->altura;
         }
 
         if (isset($request->sexo)) {
             $animal->sexo = $request->sexo;
         }
-
         if (isset($request->dieta)) {
             $animal->dieta = $request->dieta;
         }
-
         if (isset($request->habitat)) {
             $animal->habitat = $request->habitat;
+        }
+        if (isset($request->idade)) {
+            $animal->idade = $request->idade;
+        }
+        if (isset($request->ra)) {
+            $animal->ra = $request->ra;
         }
 
         $animal->update();
 
         return response()->json([
             'status' => true,
-            'message' => "Animal atualizados"
+            'message' => 'Animal atualizado'
         ]);
     }
+
 
     public function pesquisarPorRa(Request $request)
     {
