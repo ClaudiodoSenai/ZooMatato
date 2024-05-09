@@ -22,6 +22,8 @@ copy .env.example .env
 ```
 code .
 ```
+## Insomnia
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=ZooMatato&uri=https%3A%2F%2Fgithub.com%2FClaudiodoSenai%2FZooMatato%2Fblob%2Fmain%2FInsomnia_2024-05-08.json)
 
 ## Licença
 
