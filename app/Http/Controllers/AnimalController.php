@@ -118,14 +118,14 @@ class AnimalController extends Controller
         if (!isset($animal)) {
             return response()->json([
                 'status' => false,
-                'message' => 'Animal não encontrado'
+                'message' => 'Animal não encontrado',
+               // 'data' => $animal
             ]);
         }
 
         if (isset($request->nome)) {
             $animal->nome = $request->nome;
         }
-
         if (isset($request->especie)) {
             $animal->especie = $request->especie;
         }
@@ -149,7 +149,6 @@ class AnimalController extends Controller
         if (isset($request->ra)) {
             $animal->ra = $request->ra;
         }
-
         $animal->update();
 
         return response()->json([
