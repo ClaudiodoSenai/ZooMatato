@@ -18,14 +18,14 @@ class AnimalSeeder extends Seeder
 
 
             Animal::create([
-                'nome' => 'Fido' . $i,
+                'nome' => 'Ambrozio' . $i,
                 'idade' => 5,
                 'especie' => 'Macaco',
                 'ra' => 'RA12345' . $i,
                 'peso' => 30.5,
                 'altura' => 60,
                 'sexo' => 'Macho',
-                'dieta' => 'Alimentos seco e carne',
+                'dieta' => 'Alimentos comestiveis',
                 'habitat' => 'Casa'
             ]);
         }
