@@ -25,7 +25,7 @@ class AnimalFormRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:255',
-            'idade' => 'required|min:10|max:120',
+            'idade' => 'required|min:1|max:120',
             'especie' => 'required|max:255',
             'ra' => 'required|unique:animals|min:5|max:20',
             'peso' => 'required|numeric|min:0',
