@@ -10,5 +10,5 @@ Route::post('animal/pesquisar/nome', [AnimalController::class, 'pesquisarPorNome
 Route::post('animal/pesquisar/especie', [AnimalController::class, 'pesquisarPorEspecie']);
 Route::post('animal/pesquisar/ra', [AnimalController::class, 'pesquisarPorRa']);
 Route::delete('animal/excluir/{id}', [AnimalController::class, 'excluirAnimal']);
-Route::put('animal/atualizar', [AnimalController::class, 'atualizarAnimal']);
+Route::post('animal/atualizar', [AnimalController::class, 'atualizarAnimal']);
 Route::get('animal/encontrar/{id}', [AnimalController::class, 'pesquisarPorId']);
